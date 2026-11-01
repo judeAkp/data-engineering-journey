@@ -2,55 +2,55 @@ import pandas as pd
 
 df = pd.read_csv("messy_customers.csv")
 
-# print(df.shape)              # (11, 7)
-# print(df.dtypes)             # note: customer_id and age are floats, spend is text
-# print(df.isna().sum())       # how many missing per column
-# print(df.duplicated().sum()) # how many exact duplicate rows
+print(df.shape)              # (11, 7)
+print(df.dtypes)             # note: customer_id and age are floats, spend is text
+print(df.isna().sum())       # how many missing per column
+print(df.duplicated().sum()) # how many exact duplicate rows
 
-# print("------------ ")
+print("------------ ")
 
-# df = df.dropna(how="all")     # removes the empty comma-only row  -> 10 rows
-# df = df.drop_duplicates()     # removes the two copies of TOM BAKER -> 8 rows
-# print(df.shape)
+df = df.dropna(how="all")     # removes the empty comma-only row  -> 10 rows
+df = df.drop_duplicates()     # removes the two copies of TOM BAKER -> 8 rows
+print(df.shape)
 
-# print("------------ ")
+print("------------ ")
 
-# df["name"] = df["name"].str.strip().str.title()
-# df["name"] = df["name"].str.replace(r"\s+", " ", regex=True)   # collapse double spaces
+df["name"] = df["name"].str.strip().str.title()
+df["name"] = df["name"].str.replace(r"\s+", " ", regex=True)   # collapse double spaces
 
-# df["city"] = df["city"].str.strip().str.title()
-# df["city"] = df["city"].replace({"Bham": "Birmingham"})
+df["city"] = df["city"].str.strip().str.title()
+df["city"] = df["city"].replace({"Bham": "Birmingham"})
 
-# print(df["name"].unique())
-# print(df["city"].value_counts())
+print(df["name"].unique())
+print(df["city"].value_counts())
 
-# print("------------ ")
+print("------------ ")
 
-# df["spend"] = (df["spend"]
-#                .str.replace("£", "", regex=False)
-#                .str.replace(",", "", regex=False))
-# df["spend"] = pd.to_numeric(df["spend"], errors="coerce")
+df["spend"] = (df["spend"]
+               .str.replace("£", "", regex=False)
+               .str.replace(",", "", regex=False))
+df["spend"] = pd.to_numeric(df["spend"], errors="coerce")
 
-# print(df["spend"].sum())    # 4316.5
-# print(df["spend"].dtype)    # float64
+print(df["spend"].sum())    # 4316.5
+print(df["spend"].dtype)    # float64
 
-# print("------------ ")
+print("------------ ")
 
-# df["signup_date"] = pd.to_datetime(df["signup_date"], format="mixed", dayfirst=True)
-# print(df["signup_date"].dtype)      # datetime64[ns]
-# print(df["signup_date"].dt.month)   # .dt unlocks day/month/year
-# print(df["signup_date"].min(), df["signup_date"].max())
+df["signup_date"] = pd.to_datetime(df["signup_date"], format="mixed", dayfirst=True)
+print(df["signup_date"].dtype)      # datetime64[ns]
+print(df["signup_date"].dt.month)   # .dt unlocks day/month/year
+print(df["signup_date"].min(), df["signup_date"].max())
 
-# print("------------ ")
+print("------------ ")
 
-# df["customer_id"] = df["customer_id"].astype(int)
+df["customer_id"] = df["customer_id"].astype(int)
 
-# print(df.dtypes)
-# print(df.isna().sum())
-# print(df.shape)                 # (8, 7)
+print(df.dtypes)
+print(df.isna().sum())
+print(df.shape)                 # (8, 7)
 
-# df.to_csv("customers_clean.csv", index=False)
-# print("Saved customers_clean.csv")
+df.to_csv("customers_clean.csv", index=False)
+print("Saved customers_clean.csv")
 
 
 #ow many rows and columns before cleaning? (11, 7)

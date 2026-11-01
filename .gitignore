@@ -4,3 +4,4 @@ __pycache__/
 .env
 customers.csv
 messy_customers.csv
+customers_clean.csv

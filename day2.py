@@ -1,5 +1,3 @@
-from ast import Store
-
 
 name = " jude "
 age = "40"
@@ -48,8 +46,8 @@ for fruit in ["apple", "banana", "cherry"]:
 
 
      # Loop over a dictionary   
-#for key, value in {"name": "John", "age": 30, "city": "New York"}.items():
-    #print(f"{key}: {value}")     
+for key, value in {"name": "John", "age": 30, "city": "New York"}.items():
+    print(f"{key}: {value}")
 
 
     # while loop - repeat until a condition changes
@@ -87,16 +85,16 @@ else:
     print("Odd")
 
 #Grade checker: score 70+ = "Pass", 50–69 = "Retry", below 50 = "Fail"  
-#score = int(input("Enter your score: "))
-#if score >= 70:
-    #print("Pass")
-#elif score >= 50:
-    #print("Retry")
-#else:
-    #print(f"Fail advanced, your score is {score}. Please try again.")
+score = int(input("Enter your score: "))
+if score >= 70:
+    print("Pass")
+elif score >= 50:
+    print("Retry")
+else:
+    print(f"Fail advanced, your score is {score}. Please try again.")
 
 #Print numbers 1 to 20, but only the even ones
-#for i in range(1, 21):
+for i in range(1, 21):
     if i % 2 == 0:
         print(i)
 

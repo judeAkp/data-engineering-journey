@@ -1,0 +1,9 @@
+customer_id,name,city,signup_date,age,email,spend
+1,Sarah Jones,Birmingham,2024-03-01,34.0,sarah@example.com,1250.5
+2,Tom Baker,Birmingham,2024-03-05,,tom@example.com,320.0
+3,Priya Patel,Birmingham,2024-07-03,41.0,priya@example.com,80.25
+5,Dan O'Brien,Solihull,2024-03-12,29.0,dan@example.com,2010.0
+6,Amy Chen,Coventry,2024-03-15,,,
+7,Mohammed Ali,Wolverhampton,2024-03-18,52.0,mohammed@example.com,45.0
+8,Lucy Gray,Birmingham,2024-03-22,27.0,lucy@example.com,610.75
+10,Raj Singh,Birmingham,2024-03-25,38.0,raj@example.com,0.0

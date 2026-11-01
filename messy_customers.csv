@@ -1,0 +1,12 @@
+customer_id,name,city,signup_date,age,email,spend
+1,  sarah jones ,birmingham,01/03/2024,34,sarah@example.com,"£1,250.50"
+2,TOM BAKER,BIRMINGHAM ,05/03/2024,,tom@example.com,£320.00
+3,Priya Patel, Bham ,2024-03-07,41,priya@example.com,£80.25
+2,TOM BAKER,BIRMINGHAM ,05/03/2024,,tom@example.com,£320.00
+5,Dan  O'Brien, Solihull,12/03/2024,29,dan@example.com,"£2,010.00"
+6,AMY chen,COVENTRY,2024-03-15,,,
+,,,,,,
+7,Mohammed Ali,Wolverhampton,2024-03-18,52,mohammed@example.com,£45.00
+8,lucy gray,birmingham,22/03/2024,27,lucy@example.com,£610.75
+2,TOM BAKER,BIRMINGHAM ,05/03/2024,,tom@example.com,£320.00
+10,Raj Singh,Birmingham,2024-03-25,38,raj@example.com,£0

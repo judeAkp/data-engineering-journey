@@ -1,6 +1,9 @@
 #import json
 
+from unittest import result
+
 import requests
+from sqlalchemy import table
 
 url = "https://api.postcodes.io/postcodes/B32 2RT".replace(" ", "%20")
 response = requests.get(url, timeout=20)
@@ -10,6 +13,10 @@ print(response.text[:200])      # the raw text that came back
 
 data = response.json()          # turns JSON text into Python dicts and lists
 print(data["status"], data["result"]["latitude"], data["result"]["longitude"])
+
+
+
+
 
 
 weather_url = "https://archive-api.open-meteo.com/v1/archive"
@@ -116,6 +123,7 @@ import json
 with open("weather_raw.json", "w") as f:
     json.dump(weather, f)
 # Why: APIs change, rate-limit or go down. Saving raw responses lets you
+
 # re-run your pipeline, debug, and prove what the source said on a given day.
 # (Also: you don't hammer someone's free API while developing.)
 

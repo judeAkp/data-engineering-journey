@@ -50,12 +50,12 @@ for key, value in {"name": "John", "age": 30, "city": "New York"}.items():
     print(f"{key}: {value}")
 
 
-    # while loop - repeat until a condition changes
-    count = 3
-    while count > 0:
-        print(f"Processing in {count}---")
-        count = count-1
-        print("Done")
+# while loop - repeat until a condition changes
+count = 3
+while count > 0:
+    print(f"Processing in {count}---")
+    count = count - 1
+print("Done")
 
 
 #Print your name, city, and target job using one f-string     

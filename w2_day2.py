@@ -53,22 +53,22 @@ df.to_csv("customers_clean.csv", index=False)
 print("Saved customers_clean.csv")
 
 
-#ow many rows and columns before cleaning? (11, 7)
-print(df.shape)              # (11, 7)
+# How many rows and columns remain after cleaning? (8, 7)
+print(df.shape)              # (8, 7)
 
 
 #How many values are missing in age? (5)
 print(df["age"].isna().sum())
 
 #. After dropping the empty row and duplicates, how many rows are left? (8)
-print(df.dropna(how="all").drop_duplicates().shape)     # removes the empty comma-only row  -> 10 rows
+print(df.dropna(how="all").drop_duplicates().shape)  # (8, 7) after dropping blank and duplicate rows
 
 # What is the total spend after converting to numbers? (£4316.50)
-print(df["spend"].str.replace("£", "", regex=False).str.replace(",", "", regex=False).astype(float).sum())    # 4316.5
+print(df["spend"].sum())    # 4316.5
 
 
-#What is the average age? (36.83 — and explain why only 6 rows count)
-print(int(df["age"].mean()))  # 36.833333333333336
+# What is the average age? (36.83 — and explain why only 6 rows count)
+print(round(df["age"].mean(), 2))
 
 # Count how many customers are in each city after standardising (Birmingham 5, others 1 each)
 print(df["city"].value_counts())
@@ -79,7 +79,9 @@ df["email"] = df["email"].fillna("unknown")
 # No, because filling missing ages with the average might not be representative of the actual age distribution.
 
 #Create a spend_band column: "High" ≥ 1000, "Medium" 100–999, "Low" < 100
-df["spend_band"] = df["spend"].str.replace("£", "", regex=False).str.replace(",", "", regex=False).astype(float).apply(lambda x: "High" if x >= 1000 else "Medium" if x >= 100 else "Low")
+df["spend_band"] = df["spend"].apply(
+    lambda x: "High" if x >= 1000 else "Medium" if x >= 100 else "Low"
+)
 
 #Save the cleaned file and open it in VS Code to confirm it looks right
 df.to_csv("customers_clean.csv", index=False)

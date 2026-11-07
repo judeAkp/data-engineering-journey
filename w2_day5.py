@@ -1,9 +1,9 @@
 #import json
 
-from unittest import result
+#from unittest import result
 
 import requests
-from sqlalchemy import table
+#from sqlalchemy import table
 
 url = "https://api.postcodes.io/postcodes/B32 2RT".replace(" ", "%20")
 response = requests.get(url, timeout=20)
@@ -105,7 +105,8 @@ month_params = {
     "daily": "temperature_2m_max,temperature_2m_min,precipitation_sum",
     "timezone": "Europe/London",
 }
-r = requests.get("https://api.open-meteo.com/v1/forecast", params=month_params, timeout=20)
+r = requests.get("https://archive-api.open-meteo.com/v1/archive", params=month_params, timeout=30)
+r.raise_for_status()
 df_month = pd.DataFrame(r.json()["daily"])
 print(df_month.shape[0])  # Number of rows in the DataFrame
 
@@ -115,8 +116,12 @@ wettest_day = df_month.loc[df_month["precipitation_sum"].idxmax()]
 print(f"Warmest day: {warmest_day['time']} with max temp {warmest_day['temperature_2m_max']}°C")
 print(f"Wettest day: {wettest_day['time']} with precipitation {wettest_day['precipitation_sum']}mm")
 
-# 5. Change daily to include windspeed_10m_max as well — check the API docs page for the exact name
-month_params["daily"] += ",windspeed_10m_max"
+# 5. Include the maximum 10 m wind speed in the archive weather request.
+month_params["daily"] += ",wind_speed_10m_max"
+r = requests.get("https://archive-api.open-meteo.com/v1/archive", params=month_params, timeout=30)
+r.raise_for_status()
+df_month = pd.DataFrame(r.json()["daily"])
+print(df_month.columns.tolist())
 
 # 6. Save the raw JSON to a file with json.dump, then read it back later. Why do real pipelines keep the raw response?
 import json

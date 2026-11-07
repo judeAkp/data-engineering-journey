@@ -12,6 +12,21 @@ Pandas.
 - `csv_summary.py` reports sales totals and counts by category using Python's
   built-in `csv` module.
 
+## Week 2
+
+The weather pipeline looks up postcodes, fetches daily weather, and saves the
+combined data to CSV and SQL Server:
+
+```text
+postcodes.csv -> postcodes.io (lat/lon) -> Open-Meteo (weather)
+              -> pandas (clean) -> weather_birmingham.csv -> SQL Server
+```
+
+- `w2_day1.py` through `w2_day5.py` cover Pandas, data cleaning, aggregation,
+  joins, and API responses.
+- `w2_pipeline.py` combines postcode lookups and weather data, writes
+  `weather_birmingham.csv`, and loads it into SQL Server.
+
 ## Setup
 
 From the project directory in PowerShell, create and activate a virtual

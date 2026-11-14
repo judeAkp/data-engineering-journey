@@ -27,6 +27,37 @@ postcodes.csv -> postcodes.io (lat/lon) -> Open-Meteo (weather)
 - `w2_pipeline.py` combines postcode lookups and weather data, writes
   `weather_birmingham.csv`, and loads it into SQL Server.
 
+## Week 3
+
+Week 3 practices SQL against the `DE_Learning` database. `queries.sql` organizes
+37 exercises across filtering, aggregation, joins, CTEs, and window functions.
+`week3_star_schema.sql` builds and loads the star schema, records pipeline audit
+counts and run time, and includes the reporting queries.
+
+```text
+dim_customer ----\
+                  \
+dim_product ------ fact_orders ------ dim_date
+                         |
+                         +-- monthly target report -- targets
+```
+
+`fact_orders` is at the order grain and stores quantity and sales amount.
+`dim_customer`, `dim_product`, and `dim_date` provide reporting attributes.
+Monthly targets are joined by month; the `All` category represents the
+whole-month target.
+
+Example monthly revenue vs target output:
+
+```text
+month_start  revenue  target_revenue  variance  variance_pct
+2026-09-01   2760.00       2500.00    +260.00       +10.40
+2026-10-01   1558.50       2500.00    -941.50       -37.66
+```
+
+Run `load_sql.py` first, then open `week3_star_schema.sql` in VS Code connected
+to SQL Server and execute it against `DE_Learning`.
+
 ## Setup
 
 From the project directory in PowerShell, create and activate a virtual
